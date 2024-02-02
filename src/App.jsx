@@ -1,5 +1,7 @@
+import {motion} from 'framer-motion';
+
 function App() {
-  return <div></div>;
+  return <motion.div animate={{}}>HIII</motion.div>;
 }
 
 export default App;
