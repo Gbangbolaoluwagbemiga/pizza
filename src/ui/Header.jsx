@@ -1,5 +1,11 @@
+import {Link} from 'react-router-dom';
+
 function Header() {
-  return <div></div>;
+  return (
+    <div>
+      <Link />
+    </div>
+  );
 }
 
 export default Header;
