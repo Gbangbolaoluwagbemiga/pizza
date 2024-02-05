@@ -1,6 +1,7 @@
 import {Outlet, useNavigation} from 'react-router-dom';
 import CartOverview from '../features/cart/CartOverview';
 import Header from './Header';
+import Loader from './Loader';
 
 function AppLayout() {
   const navigation = useNavigation();
@@ -8,6 +9,8 @@ function AppLayout() {
 
   return (
     <div className="layout">
+      {isLoading && <Loader />}
+
       <Header />
 
       <main>
