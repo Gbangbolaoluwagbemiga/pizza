@@ -1,9 +1,12 @@
 // Test ID: IIDSAT
 
+import {useLoaderData} from 'react-router-dom';
 import {getOrder} from '../../services/apiRestaurant';
 import {calcMinutesLeft, formatCurrency, formatDate} from '../../utils/helpers';
 
 function Order() {
+  const order = useLoaderData();
+
   const {
     id,
     status,
@@ -21,7 +24,7 @@ function Order() {
         <h2>Status</h2>
 
         <div>
-          {priority && <span>Priority</span>}
+          {priority && <span> Priority</span>}
           <span>{status} order</span>
         </div>
       </div>
