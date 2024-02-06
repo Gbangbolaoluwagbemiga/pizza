@@ -8,11 +8,13 @@ function SearchOrder() {
     e.preventDefault();
     if (!query) return;
     navigate(`/order/${query}`);
+    setQuery('');
   }
 
   return (
     <form onSubmit={handleSubmit}>
       <input
+        placeholder="Search order"
         type="text"
         value={query}
         onChange={e => setQuery(e.target.value)}
