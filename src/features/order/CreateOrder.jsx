@@ -1,5 +1,6 @@
 import {useState} from 'react';
 import {Form} from 'react-router-dom';
+import {createOrder} from '../../services/apiRestaurant';
 
 // https://uibakery.io/regex-library/phone-number
 const isValidPhone = str =>
@@ -88,6 +89,7 @@ export async function action({request}) {
     cart: JSON.parse(data.cart),
     priority: data.priority === 'on',
   };
+  createOrder(order);
 
   return order;
 }
