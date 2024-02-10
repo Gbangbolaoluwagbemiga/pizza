@@ -63,7 +63,13 @@ function CreateOrder() {
         <div>
           <label>Address</label>
           <div>
-            <input type="text" name="address" required />
+            <input
+              type="text"
+              name="address"
+              className="rounded-full border border-stone-200 px-4 py-2 text-sm transition-all
+              duration-300 placeholder:text-stone-400  focus:outline-none focus:ring"
+              required
+            />
           </div>
         </div>
 
@@ -75,7 +81,9 @@ function CreateOrder() {
             // value={withPriority}
             // onChange={(e) => setWithPriority(e.target.checked)}
           />
-          <label htmlFor="priority">Want to yo give your order priority?</label>
+          <label htmlFor="priority">
+            Want you to give your order priority?
+          </label>
         </div>
 
         <div>
