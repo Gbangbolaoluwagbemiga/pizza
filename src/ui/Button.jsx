@@ -1,4 +1,4 @@
-function Button({ Children, disabled }) {
+function Button({ children, disabled }) {
   return (
     <button
       disabled={disabled}
@@ -7,7 +7,7 @@ function Button({ Children, disabled }) {
 focus:bg-yellow-300 focus:outline-none focus:ring focus:ring-yellow-300
   focus:ring-offset-2 disabled:cursor-not-allowed lg:px-4 lg:py-3"
     >
-      {Children}
+      {children}
     </button>
   );
 }
