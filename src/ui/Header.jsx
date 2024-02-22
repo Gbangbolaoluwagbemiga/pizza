@@ -8,7 +8,8 @@ function Header() {
       <Link to="/" className="tracking-widest">
         Fast React Pizza Co.
       </Link>
-      <Username /> <SearchOrder />
+      <SearchOrder />
+      <Username />{" "}
     </header>
   );
 }
