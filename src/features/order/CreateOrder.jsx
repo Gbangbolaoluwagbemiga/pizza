@@ -16,7 +16,7 @@ const fakeCart = [
     name: "Mediterranean",
     quantity: 2,
     unitPrice: 16,
-    totalPrice: 32,
+    totalPrice: 42,
   },
   {
     pizzaId: 6,
@@ -58,7 +58,7 @@ function CreateOrder() {
           <div>
             <input type="tel" name="phone" className="input" required />
           </div>
-          {formErrors?.phone && <p>{formErrors.phone}</p>}
+          {/* {formErrors?.phone && <p>{formErrors.phone}</p>} */}
         </div>
 
         <div>
@@ -75,8 +75,8 @@ function CreateOrder() {
             id="priority"
             className="h-6 w-6 accent-yellow-400 focus:outline-none focus:ring
             focus:ring-yellow-400 focus:ring-offset-2"
-            value={withPriority}
-            onChange={(e) => setWithPriority(e.target.checked)}
+            // value={withPriority}
+            // onChange={(e) => setWithPriority(e.target.checked)}
           />
           <label htmlFor="priority">
             Want you to give your order priority?
@@ -106,11 +106,11 @@ export async function action({ request }) {
 
   console.log(order);
 
-  const errors = {};
-  errors.phone =
-    "Please input a valid phone number, we might need it to contact you";
+  // const errors = {};
+  // errors.phone =
+  //   "Please input a valid phone number, we might need it to contact you";
 
-  if (Object.keys(errors).length > 0) return errors;
+  // if (Object.keys(errors).length > 0) return errors;
 
   const newOrder = await createOrder(order);
 
