@@ -58,7 +58,7 @@ function CreateOrder() {
           <div>
             <input type="tel" name="phone" className="input" required />
           </div>
-          {/* {formErrors?.phone && <p>{formErrors.phone}</p>} */}
+          {formErrors?.phone && <p>{formErrors.phone}</p>}
         </div>
 
         <div>
@@ -95,6 +95,7 @@ function CreateOrder() {
 }
 
 export async function action({ request }) {
+  console.log(request);
   const formData = await request.formData();
   const data = Object.fromEntries(formData);
 
@@ -106,11 +107,11 @@ export async function action({ request }) {
 
   console.log(order);
 
-  // const errors = {};
-  // errors.phone =
-  //   "Please input a valid phone number, we might need it to contact you";
+  const errors = {};
+  errors.phone =
+    "Please input a valid phone number, we might need it to contact you";
 
-  // if (Object.keys(errors).length > 0) return errors;
+  if (Object.keys(errors).length > 0) return errors;
 
   const newOrder = await createOrder(order);
 
