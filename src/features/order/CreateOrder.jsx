@@ -75,8 +75,8 @@ function CreateOrder() {
             id="priority"
             className="h-6 w-6 accent-yellow-400 focus:outline-none focus:ring
             focus:ring-yellow-400 focus:ring-offset-2"
-            // value={withPriority}
-            // onChange={(e) => setWithPriority(e.target.checked)}
+            value={withPriority}
+            onChange={(e) => setWithPriority(e.target.checked)}
           />
           <label htmlFor="priority">
             Want you to give your order priority?
@@ -103,6 +103,8 @@ export async function action({ request }) {
     cart: JSON.parse(data.cart),
     priority: data.priority === "on",
   };
+
+  console.log(order);
 
   const errors = {};
   errors.phone =
