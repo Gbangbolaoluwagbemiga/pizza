@@ -8,7 +8,6 @@ const isValidPhone = (str) =>
   /^\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}$/.test(
     str
   );
-// console.log(isValidPhone(9));
 
 const fakeCart = [
   {
@@ -40,6 +39,7 @@ function CreateOrder() {
   const isSubmitting = navigation.state === "submitting";
 
   const formErrors = useActionData();
+  console.log(formErrors);
 
   const cart = fakeCart;
 
@@ -104,16 +104,16 @@ export async function action({ request }) {
     priority: data.priority === "on",
   };
 
-  // console.log(order);
+  console.log(request);
 
   const errors = {};
-  errors.phone =
-    "Please input a valid phone number, we might need it to contact you";
-
+  if (!isValidPhone(order.phone))
+    errors.phone =
+      "Please input a valid phone number, we might need it to contact you";
   if (Object.keys(errors).length > 0) return errors;
 
   const newOrder = await createOrder(order);
-
   return redirect(`/order/${newOrder.id}`);
 }
+
 export default CreateOrder;
