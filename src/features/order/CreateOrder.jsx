@@ -44,8 +44,10 @@ function CreateOrder() {
   const cart = fakeCart;
 
   return (
-    <div>
-      <h2>Ready to order? {`Let's`} go!</h2>
+    <div className="py-5">
+      <h2 className="my-3 text-2xl font-bold italic">
+        Ready to order? {`Let's`} go!
+      </h2>
 
       <Form method="POST">
         <div>
@@ -68,12 +70,12 @@ function CreateOrder() {
           </div>
         </div>
 
-        <div>
+        <div className="mt-4 flex items-center space-x-2">
           <input
             type="checkbox"
             name="priority"
             id="priority"
-            className="h-6 w-6 accent-yellow-400 focus:outline-none focus:ring
+            className=" h-6 w-6 accent-yellow-400 focus:outline-none focus:ring
             focus:ring-yellow-400 focus:ring-offset-2"
             // value={withPriority}
             // onChange={(e) => setWithPriority(e.target.checked)}
@@ -83,9 +85,9 @@ function CreateOrder() {
           </label>
         </div>
 
-        <div>
+        <div className=" absolute right-[45%] mt-7">
           <input type="hidden" name="cart" value={JSON.stringify(cart)} />
-          <Button disabled={isSubmitting}>
+          <Button disabled={isSubmitting} type="primary">
             {isSubmitting ? "Placing order" : "Order now"}
           </Button>
         </div>

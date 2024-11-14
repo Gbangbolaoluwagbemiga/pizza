@@ -2,7 +2,7 @@ import CreateUser from "../features/user/CreateUser";
 
 function Home() {
   return (
-    <div className="my-10 text-center">
+    <div className="my-10 text-center ">
       <h1 className=" mb-8 px-4 text-xl font-semibold md:text-3xl">
         The best pizza.
         <br />
