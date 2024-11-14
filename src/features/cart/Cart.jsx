@@ -39,9 +39,9 @@ function Cart() {
 
       <h2>Your cart, %NAME%</h2>
 
-      <div>
+      <div className="flex space-x-3">
         <Link to="/order/new">Order pizzas</Link>
-        <Button type={primary}>Clear cart</Button>
+        <Button type="primary">Clear cart</Button>
       </div>
     </div>
   );
