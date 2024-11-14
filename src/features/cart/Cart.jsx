@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import Button from "../../ui/Button";
 
 const fakeCart = [
   {
@@ -40,7 +41,7 @@ function Cart() {
 
       <div>
         <Link to="/order/new">Order pizzas</Link>
-        <button>Clear cart</button>
+        <Button type={primary}>Clear cart</Button>
       </div>
     </div>
   );
