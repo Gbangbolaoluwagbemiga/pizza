@@ -15,7 +15,7 @@ const fakeCart = [
     name: "Mediterranean",
     quantity: 2,
     unitPrice: 16,
-    totalPrice: 42,
+    totalPrice: 32,
   },
   {
     pizzaId: 6,
@@ -34,61 +34,67 @@ const fakeCart = [
 ];
 
 function CreateOrder() {
-  // const [withPriority, setWithPriority] = useState(false);
   const navigation = useNavigation();
   const isSubmitting = navigation.state === "submitting";
 
   const formErrors = useActionData();
-  console.log(formErrors);
 
+  // const [withPriority, setWithPriority] = useState(false);
   const cart = fakeCart;
 
   return (
-    <div className="py-5">
-      <h2 className="my-3 text-2xl font-bold italic">
-        Ready to order? {`Let's`} go!
-      </h2>
+    <div className="px-4 py-6">
+      <h2 className="mb-8 text-xl font-semibold">Ready to order? Let's go!</h2>
 
+      {/* <Form method="POST" action="/order/new"> */}
       <Form method="POST">
-        <div>
-          <label>First Name</label>
-          <input type="text" name="customer" className="input" required />
+        <div className="mb-5 flex flex-col gap-2 sm:flex-row sm:items-center">
+          <label className="sm:basis-40">First Name</label>
+          <input className="input grow" type="text" name="customer" required />
         </div>
 
-        <div>
-          <label>Phone number</label>
-          <div>
-            <input type="tel" name="phone" className="input" required />
-          </div>
-          {formErrors?.phone && <p>{formErrors.phone}</p>}
-        </div>
-
-        <div>
-          <label>Address</label>
-          <div>
-            <input type="text" name="address" className="input" required />
+        <div className="mb-5 flex flex-col gap-2 sm:flex-row sm:items-center">
+          <label className="sm:basis-40">Phone number</label>
+          <div className="grow">
+            <input className="input w-full" type="tel" name="phone" required />
+            {formErrors?.phone && (
+              <p className="mt-2 rounded-md bg-red-100 p-2 text-xs text-red-700">
+                {formErrors.phone}
+              </p>
+            )}
           </div>
         </div>
 
-        <div className="mt-4 flex items-center space-x-2">
+        <div className="mb-5 flex flex-col gap-2 sm:flex-row sm:items-center">
+          <label className="sm:basis-40">Address</label>
+          <div className="grow">
+            <input
+              className="input w-full"
+              type="text"
+              name="address"
+              required
+            />
+          </div>
+        </div>
+
+        <div className="mb-12 flex items-center gap-5">
           <input
+            className="h-6 w-6 accent-yellow-400 focus:outline-none focus:ring focus:ring-yellow-400 focus:ring-offset-2"
             type="checkbox"
             name="priority"
             id="priority"
-            className=" h-6 w-6 accent-yellow-400 focus:outline-none focus:ring
-            focus:ring-yellow-400 focus:ring-offset-2"
             // value={withPriority}
             // onChange={(e) => setWithPriority(e.target.checked)}
           />
-          <label htmlFor="priority">
-            Want you to give your order priority?
+          <label htmlFor="priority" className="font-medium">
+            Want to yo give your order priority?
           </label>
         </div>
 
-        <div className=" absolute right-[45%] mt-7">
+        <div>
           <input type="hidden" name="cart" value={JSON.stringify(cart)} />
           <Button disabled={isSubmitting} type="primary">
-            {isSubmitting ? "Placing order" : "Order now"}
+            {isSubmitting ? "Placing order...." : "Order now"}
           </Button>
         </div>
       </Form>
@@ -106,16 +112,14 @@ export async function action({ request }) {
     priority: data.priority === "on",
   };
 
-  console.log(request);
-
   const errors = {};
   if (!isValidPhone(order.phone))
     errors.phone =
-      "Please input a valid phone number, we might need it to contact you";
+      "Please give us your correct phone number. We might need it to contact you.";
+
   if (Object.keys(errors).length > 0) return errors;
 
-  const newOrder = await createOrder(order);
-  return redirect(`/order/${newOrder.id}`);
+  return null;
 }
 
 export default CreateOrder;
