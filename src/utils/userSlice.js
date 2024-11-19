@@ -4,8 +4,6 @@
 //   });
 // }
 
-import { createSlice } from "@reduxjs/toolkit";
-
 // async function fetchAddress() {
 //   // 1) We get the user's geolocation position
 //   const positionObj = await getPosition();
@@ -22,6 +20,7 @@ import { createSlice } from "@reduxjs/toolkit";
 //   return { position, address };
 // }
 
+import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   userName: "",
 };
