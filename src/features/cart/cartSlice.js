@@ -50,3 +50,6 @@ export const {
 } = cartSlice.actions;
 
 export default cartSlice.reducer;
+
+export const itemQuantity = (state) =>
+  state.cart.cart.reduce((acc, item) => item.quantity + acc, 0);
