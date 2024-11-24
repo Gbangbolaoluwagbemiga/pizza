@@ -3,6 +3,7 @@ import Button from "../../ui/Button";
 import { formatCurrency } from "../../utils/helpers";
 import { addItems, getCart, getCurrentItemId } from "../cart/cartSlice";
 import DeleteItem from "../cart/DeleteItem";
+import UpdateItemQuantity from "../cart/UpdateItemQuantity";
 
 function MenuItem({ pizza }) {
   const dispatch = useDispatch();
@@ -40,7 +41,12 @@ function MenuItem({ pizza }) {
           ) : (
             <p className="font-medium uppercase text-stone-500">Sold out</p>
           )}
-          {currentItemId > 0 && <DeleteItem id={id} />}{" "}
+          {currentItemId > 0 && (
+            <>
+              <UpdateItemQuantity />
+              <DeleteItem id={id} />
+            </>
+          )}{" "}
           {!soldOut && !currentItemId && (
             <Button type="small" onClick={handleBtn}>
               Add to Cart
