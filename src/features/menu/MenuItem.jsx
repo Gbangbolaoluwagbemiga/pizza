@@ -8,7 +8,8 @@ import UpdateItemQuantity from "../cart/UpdateItemQuantity";
 function MenuItem({ pizza }) {
   const dispatch = useDispatch();
 
-  const { id, name, unitPrice, ingredients, soldOut, imageUrl } = pizza;
+  const { id, name, unitPrice, ingredients, soldOut, imageUrl, quantity } =
+    pizza;
   const currentItemId = useSelector(getCurrentItemId(id));
 
   function handleBtn() {
@@ -43,7 +44,7 @@ function MenuItem({ pizza }) {
           )}
           {currentItemId > 0 && (
             <>
-              <UpdateItemQuantity />
+              <UpdateItemQuantity id={id} />
               <DeleteItem id={id} />
             </>
           )}{" "}
