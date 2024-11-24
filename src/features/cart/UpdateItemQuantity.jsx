@@ -3,20 +3,20 @@ import Button from "../../ui/Button";
 import {
   decreaseItemQuantity,
   getCart,
+  getCurrentItemId,
   increaseItemQuantity,
 } from "./cartSlice";
 
 function UpdateItemQuantity({ id }) {
   const dispatch = useDispatch();
+  const currentItemId = useSelector(getCurrentItemId(id));
 
-  const cart = useSelector(getCart);
-  const cartItem = cart.find((item) => item.pizzaId === id);
   return (
-    <div className="flex items-center gap-1 md:gap-3">
+    <div className="flex items-center gap-2 md:gap-3">
       <Button type={"round"} onClick={() => dispatch(decreaseItemQuantity(id))}>
         -
       </Button>
-      <p>{cartItem?.quantity}</p>
+      <p className=" font-semibold">{currentItemId}</p>
       <Button type={"round"} onClick={() => dispatch(increaseItemQuantity(id))}>
         +
       </Button>

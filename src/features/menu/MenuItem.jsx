@@ -43,10 +43,10 @@ function MenuItem({ pizza }) {
             <p className="font-medium uppercase text-stone-500">Sold out</p>
           )}
           {currentItemId > 0 && (
-            <>
+            <div className="flex items-center gap-2">
               <UpdateItemQuantity id={id} />
               <DeleteItem id={id} />
-            </>
+            </div>
           )}{" "}
           {!soldOut && !currentItemId && (
             <Button type="small" onClick={handleBtn}>
