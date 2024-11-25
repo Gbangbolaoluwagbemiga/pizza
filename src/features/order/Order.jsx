@@ -2,7 +2,7 @@
 
 import OrderItem from "./OrderItem";
 
-import { useLoaderData } from "react-router-dom";
+import { useFetcher, useLoaderData } from "react-router-dom";
 import { getOrder } from "../../services/apiRestaurant";
 import {
   calcMinutesLeft,
@@ -12,6 +12,7 @@ import {
 
 function Order() {
   const order = useLoaderData();
+  // const fetcher = useFetcher();
 
   const {
     id,
@@ -55,7 +56,7 @@ function Order() {
 
       <ul className="dive-stone-200 divide-y border-b border-t">
         {cart.map((item) => (
-          <OrderItem item={item} key={item.id} />
+          <OrderItem item={item} key={item.pizzaId} />
         ))}
       </ul>
 

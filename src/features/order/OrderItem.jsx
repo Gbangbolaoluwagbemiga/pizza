@@ -5,11 +5,12 @@ function OrderItem({ item, isLoadingIngredients, ingredients }) {
 
   return (
     <li>
-      <div>
+      <div className="flex items-center justify-between py-2">
         <p>
-          <span>{quantity}&times;</span> {name}
+          <span className="font-semibold">{quantity}&times;</span>{" "}
+          <span className="italic">{name}</span>
         </p>
-        <p>{formatCurrency(totalPrice)}</p>
+        <p className="font-medium">{formatCurrency(totalPrice)}</p>
       </div>
     </li>
   );
