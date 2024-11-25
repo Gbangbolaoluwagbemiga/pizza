@@ -9,10 +9,18 @@ import {
   formatCurrency,
   formatDate,
 } from "../../utils/helpers";
+import { useEffect } from "react";
 
 function Order() {
   const order = useLoaderData();
-  // const fetcher = useFetcher();
+  const fetcher = useFetcher();
+
+  useEffect(
+    function () {
+      if (!fetcher.data && fetcher.state === "idle") fetcher.load("/menu");
+    }[fetcher]
+  );
+  console.log(fetcher.data);
 
   const {
     id,
