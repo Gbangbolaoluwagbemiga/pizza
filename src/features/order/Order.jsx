@@ -1,4 +1,4 @@
-// Test ID: IIDSAT
+Test ID: IIDSAT
 import { useFetcher, useLoaderData } from "react-router-dom";
 
 import OrderItem from "./OrderItem";
@@ -23,7 +23,6 @@ function Order() {
     [fetcher]
   );
 
-  // Everyone can search for all orders, so for privacy reasons we're gonna gonna exclude names or address, these are only for the restaurant staff
   const {
     id,
     status,
