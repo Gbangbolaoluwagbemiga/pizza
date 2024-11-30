@@ -20,7 +20,7 @@ function Order() {
     function () {
       if (!fetcher.data && fetcher.state === "idle") fetcher.load("/menu");
     },
-    [fetcherj]
+    [fetcher]
   );
 
   const {
